@@ -1,9 +1,13 @@
 import React from 'react';
 
-const Card = () => {
+const Card = ({movie}) => {
     return (
         <div>
-            <h1>Card Component</h1>
+            <p>
+                {movie.title}<br></br>
+                {movie.tagline}<br></br>
+                {movie.overview}<br></br><br></br>     
+            </p>
         </div>
     )
 };

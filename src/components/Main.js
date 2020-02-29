@@ -1,24 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Search from './Search';
 import Card from './Card';
+import Axios from 'axios';
 
 const Main = () => {
-    const [movie, setMovie] = useState({
-        id: 157336
-    });
+    const [movie, setMovie] = useState({});
 
-    const API_key = '';
-    const url = '';
+    const id = 157336;
+    const API_key = '3ee3dd446b8afd003b08f596ade66996';
+    const url = `https://api.themoviedb.org/3/movie/${id}?&api_key=${API_key}`;
 
-    const fetchMovie = (movie) => {
-        console.log(movie.id);
-    };
-    fetchMovie(movie);
+    useEffect(() => {
+        const fetchMovie = async () => {
+            const result = await Axios(url);
+            setMovie(result.data);
+        };
+        fetchMovie();
+    }, []);
+
+    console.log(movie);
 
     return (
         <div>
+            <h1>TMDb - Movie Search</h1>
             <Search />
-            <Card />
+            <Card movie={movie}/>
         </div>
     )
 };
