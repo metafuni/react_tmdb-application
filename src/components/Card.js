@@ -39,7 +39,7 @@ const Card = ({ movie }) => {
                     </div>
                     <div className="info-item">
                         <h3 className="header">Revenue</h3>
-                        <span>${movie.revenue}</span><br></br>
+                        <span>${parseFloat(movie.revenue).toLocaleString('en')}</span><br></br>
                     </div>
                     <div className="info-item">
                         <h3 className="header">Average Vote</h3>
