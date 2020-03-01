@@ -1,0 +1,256 @@
+@-webkit-keyframes neon {
+  0% {
+    -webkit-box-shadow: 15px 15px 15px #01d477, -15px -15px 15px #01d477, 15px -15px 15px #01d477, -15px 15px 15px #01d477, inset 7.5px 7.5px 10px #01d477, inset -7.5px -7.5px 10px #01d477;
+            box-shadow: 15px 15px 15px #01d477, -15px -15px 15px #01d477, 15px -15px 15px #01d477, -15px 15px 15px #01d477, inset 7.5px 7.5px 10px #01d477, inset -7.5px -7.5px 10px #01d477;
+    padding: 25px;
+    opacity: 1;
+    text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.5), -2px -2px 5px rgba(255, 255, 255, 0.5);
+  }
+  100% {
+    -webkit-box-shadow: 7.5px 7.5 10px #01d477, -7.5px -7.5px 10px #01d477, 7.5px -7.5px 10px #01d477, -7.5px 7.5px 10px #01d477, inset 5px 5px 10px #01d477, inset 5px 5px 10px #01d477;
+            box-shadow: 7.5px 7.5 10px #01d477, -7.5px -7.5px 10px #01d477, 7.5px -7.5px 10px #01d477, -7.5px 7.5px 10px #01d477, inset 5px 5px 10px #01d477, inset 5px 5px 10px #01d477;
+    padding: 20px;
+    opacity: .25;
+  }
+}
+
+@keyframes neon {
+  0% {
+    -webkit-box-shadow: 15px 15px 15px #01d477, -15px -15px 15px #01d477, 15px -15px 15px #01d477, -15px 15px 15px #01d477, inset 7.5px 7.5px 10px #01d477, inset -7.5px -7.5px 10px #01d477;
+            box-shadow: 15px 15px 15px #01d477, -15px -15px 15px #01d477, 15px -15px 15px #01d477, -15px 15px 15px #01d477, inset 7.5px 7.5px 10px #01d477, inset -7.5px -7.5px 10px #01d477;
+    padding: 25px;
+    opacity: 1;
+    text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.5), -2px -2px 5px rgba(255, 255, 255, 0.5);
+  }
+  100% {
+    -webkit-box-shadow: 7.5px 7.5 10px #01d477, -7.5px -7.5px 10px #01d477, 7.5px -7.5px 10px #01d477, -7.5px 7.5px 10px #01d477, inset 5px 5px 10px #01d477, inset 5px 5px 10px #01d477;
+            box-shadow: 7.5px 7.5 10px #01d477, -7.5px -7.5px 10px #01d477, 7.5px -7.5px 10px #01d477, -7.5px 7.5px 10px #01d477, inset 5px 5px 10px #01d477, inset 5px 5px 10px #01d477;
+    padding: 20px;
+    opacity: .25;
+  }
+}
+
+@media (max-width: 1000px) {
+  .search {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .search input {
+    width: 80vw !important;
+    margin: 25px auto;
+    border-bottom: 1px solid white !important;
+  }
+  .search:after {
+    display: none;
+  }
+  .card .card-img img {
+    width: 40vw;
+    margin: 25px;
+  }
+}
+
+@media (max-width: 680px) {
+  .card {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .card .card-img img {
+    margin: 5%;
+    width: 90%;
+  }
+}
+
+@media (max-width: 400px) {
+  .card .card-img img {
+    width: 100%;
+    margin: 0;
+  }
+  .card .movie-title {
+    font-size: 1.75rem;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Oswald', sans-serif;
+  color: white;
+  background: url("https://therexberkhamsted.com/wp-content/uploads/2016/10/The-Rex-Cinema-Slider-01.png");
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.app {
+  width: 100%;
+  height: 100%;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.2)), to(rgba(0, 0, 0, 0.45)));
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.45));
+}
+
+.container {
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 35px 15px;
+}
+
+.search {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  margin-bottom: 35px;
+  width: 100%;
+}
+
+.search input {
+  position: relative;
+  width: 500px;
+  padding: 4.5px;
+  outline: none;
+  border: none;
+  background: transparent;
+  color: white;
+  font-family: 'Lato', sans-serif;
+  font-size: 1.15rem;
+}
+
+.search input::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.search input:-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.search input::-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.search input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.search:after {
+  content: '';
+  position: absolute;
+  top: 55px;
+  right: 15px;
+  width: 500px;
+  height: 1px;
+  background-color: white;
+}
+
+.card {
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 4px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.card .card-img img {
+  border-radius: 4px;
+}
+
+.card .card-info {
+  padding: 10px 25px;
+}
+
+.movie-title {
+  font-family: 'Lato', sans-serif;
+  text-transform: uppercase;
+  font-size: 2.25rem;
+}
+
+.tagline, .header, .genres {
+  color: #01d477;
+  font-weight: 100;
+  font-size: 1.3rem;
+}
+
+.overview {
+  font-family: 'Lato', sans-serif;
+}
+
+.info-grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+  margin: 25px 0;
+  font-size: 1.25rem;
+  line-height: 1.25rem;
+}
+
+.info-grid .info-item span {
+  font-size: 1.25rem;
+}
+
+.production {
+  font-weight: 100;
+}
+
+.genre-item, .production-item {
+  list-style: none;
+  float: left;
+}
+
+.genre-item:not(:last-child):after, .production-item:not(:last-child):after {
+  content: ',';
+  letter-spacing: .25rem;
+}
+
+#loading {
+  z-index: 10;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  background: radial-gradient(black, rgba(0, 0, 0, 0.8));
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+#loading-ring {
+  border-radius: 25px;
+  padding: 50px;
+  -webkit-animation: neon 1s ease-in-out infinite alternate;
+          animation: neon 1s ease-in-out infinite alternate;
+}
+
+#loading-ring:after {
+  content: 'Loading . . .';
+  font-size: 1.25rem;
+  position: absolute;
+  bottom: 25%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+/*# sourceMappingURL=main.css.map */

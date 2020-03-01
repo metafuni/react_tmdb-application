@@ -1,0 +1,150 @@
+@import 'animations';
+@import 'responsive';
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Oswald', sans-serif;
+    color: white;
+    background: url('https://therexberkhamsted.com/wp-content/uploads/2016/10/The-Rex-Cinema-Slider-01.png');
+    // background: url('../img/cinema.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.app {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.45));
+}
+
+.container {
+    max-width: 950px;
+    margin: 0 auto;
+    padding: 35px 15px;
+}
+
+.search {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    margin-bottom: 35px;
+    width: 100%;
+
+    input {
+        position: relative;
+        width: 500px;
+        padding: 4.5px;
+        outline: none;
+        border: none;
+        background: transparent;
+        color: white;
+        font-family: 'Lato', sans-serif;
+        font-size: 1.15rem;
+
+        &::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+    }
+
+    &:after {
+        content: '';
+        position: absolute;
+        top: 55px;
+        right: 15px;
+        width: 500px;
+        height: 1px;
+        background-color: white;
+    }
+}
+
+.card {
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 4px;
+    display: flex;
+
+    .card-img img {
+        border-radius: 4px;
+    }
+
+    .card-info {
+        padding: 10px 25px;
+    }
+}
+
+.movie-title {
+    font-family: 'Lato', sans-serif;
+    text-transform: uppercase;
+    font-size: 2.25rem;;
+}
+
+.tagline, .header, .genres {
+    color: rgb(1, 212, 119);
+    font-weight: 100;
+    font-size: 1.3rem;
+}
+
+.overview {
+    font-family: 'Lato', sans-serif;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+    margin: 25px 0;
+    font-size: 1.25rem;
+    line-height: 1.25rem;
+
+    .info-item span {
+        font-size: 1.25rem;
+    }
+}
+
+.production {
+    font-weight: 100;
+}
+
+.genre-item, .production-item {
+    list-style: none;
+    float: left;
+    
+    &:not(:last-child):after {
+        content: ',';
+        letter-spacing: .25rem;
+    }
+}
+
+// Loading 
+#loading {
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    background: radial-gradient(black, rgba(0, 0, 0, .8));
+    transition: .3s;
+
+
+    &-ring {
+        border-radius: 25px;
+        padding: 50px;
+        animation: neon 1s ease-in-out infinite alternate;
+
+
+        &:after {
+            content: 'Loading . . .';
+            font-size: 1.25rem;
+            position: absolute;
+            bottom: 25%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+}
