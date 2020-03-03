@@ -7,7 +7,7 @@ import Axios from 'axios';
 
 const Main = () => {
     const [movie, setMovie] = useState({});
-    const [id, setId] = useState();
+    const [id, setId] = useState(27205);
     const [title, setTitle] = useState();
     const [loading, setLoading] = useState(true);
 
@@ -15,32 +15,31 @@ const Main = () => {
     const url = `https://api.themoviedb.org/3/movie/${id}?&api_key=${API_key}`;
 
     const fetchMovie = async () => {
-        setId(157336);
         const result = await Axios(url);
+        setTitle(result.data.title);
         setMovie(result.data);
     };
 
     const updateMovie = async (e) => {
-        // setLoading(true);
+        setLoading(true);
         e.preventDefault();
-        setTitle(e.target.elements.title.value);
-        console.log(title);
         const searchUrl = `https://api.themoviedb.org/3/search/movie?api_key=${API_key}&query=${e.target.elements.title.value}`;
         const result = await Axios(searchUrl);
-        setMovie(result.data.results[0]);
-        console.log(result);
+        setId(result.data.results[0].id);
+        fetchMovie();
+    };
 
-        setTitle('');
+    const updateBackground = () => {
+        const backdropUrl = 'https://image.tmdb.org/t/p/original/' + movie.backdrop_path;
+        document.body.style.backgroundImage = `url(${backdropUrl})`;
+        movie.backdrop_path ? document.body.style.backgroundImage = `url(${backdropUrl})` : document.body.style.backgroundImage = `url('https://therexberkhamsted.com/wp-content/uploads/2016/10/The-Rex-Cinema-Slider-01.png')`;
     };
 
     useEffect(() => {
         fetchMovie();
+        updateBackground();
         setLoading(false);
-    }, [id]);
-
-    console.log(movie);
-    const backdropUrl = 'https://image.tmdb.org/t/p/original/' + movie.backdrop_path;
-    document.body.style.backgroundImage = `url(${backdropUrl})`;
+    });
 
     return (
         <div className="container">
