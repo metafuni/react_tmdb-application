@@ -1,7 +1,7 @@
 import React from 'react';
 import Img from '../img/logo.png';
 
-const Card = ({ movie }) => {
+const Card = ({ movie, trailerUrl }) => {
 
     const posterUrl = 'http://image.tmdb.org/t/p/w500//' + movie.poster_path;
     // const backdropUrl = 'https://image.tmdb.org/t/p/original/' + movie.backdrop_path;
@@ -9,13 +9,13 @@ const Card = ({ movie }) => {
     return (
         <div className="card">
             <div className="card-img">
-                
-                    {movie.poster_path ? 
-                        <a href={movie.homepage} target="blank">
-                            <img src={posterUrl} alt={movie.title} title={movie.title}></img>
-                        </a> : 
-                        // <img src={Img} id="alt-img" alt="TMDb The Movie Database logo" title="TMDb The Movie Database"></img>
-                        null}
+
+                {movie.poster_path ?
+                    <a href={movie.homepage} target="blank">
+                        <img src={posterUrl} alt={movie.title} title={movie.title}></img>
+                    </a> :
+                    // <img src={Img} id="alt-img" alt="TMDb The Movie Database logo" title="TMDb The Movie Database"></img>
+                    null}
             </div>
             <div className="card-info">
                 <h1 className="movie-title">
@@ -52,6 +52,9 @@ const Card = ({ movie }) => {
                         <h3 className="header">Average Vote</h3>
                         <span>{movie.vote_average}</span>
                     </div>
+                </div>
+                <div className="trailer">
+                    <a href={trailerUrl} target="blank">Trailer</a>
                 </div>
             </div>
         </div>
