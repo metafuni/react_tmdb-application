@@ -1,10 +1,9 @@
 import React from 'react';
 import Img from '../img/logo.png';
 
-const Card = ({ movie, trailerUrl }) => {
+const Card = ({ movie, trailerUrl, imdbUrl }) => {
 
     const posterUrl = 'http://image.tmdb.org/t/p/w500//' + movie.poster_path;
-    // const backdropUrl = 'https://image.tmdb.org/t/p/original/' + movie.backdrop_path;
 
     return (
         <div className="card">
@@ -13,9 +12,7 @@ const Card = ({ movie, trailerUrl }) => {
                 {movie.poster_path ?
                     <a href={movie.homepage} target="blank">
                         <img src={posterUrl} alt={movie.title} title={movie.title}></img>
-                    </a> :
-                    // <img src={Img} id="alt-img" alt="TMDb The Movie Database logo" title="TMDb The Movie Database"></img>
-                    null}
+                    </a> : null}
             </div>
             <div className="card-info">
                 <h1 className="movie-title">
@@ -52,10 +49,11 @@ const Card = ({ movie, trailerUrl }) => {
                         <h3 className="header">Average Vote</h3>
                         <span>{movie.vote_average}</span>
                     </div>
-                </div>
-                <div className="trailer">
-                    <a href={trailerUrl} target="blank">Trailer</a>
-                </div>
+                </div><br></br>
+                <div className="links">
+                    {trailerUrl ? <a href={trailerUrl} target="blank"><i class="fa fa-3x fa-youtube"></i></a> : null}
+                    {imdbUrl ? <a href={imdbUrl} target="blank"><i class="fa fa-3x fa-imdb"></i></a> : null}
+                </div><br></br>
             </div>
         </div>
     )
