@@ -9,7 +9,6 @@ import Axios from 'axios';
 const Main = () => {
     const [movie, setMovie] = useState({});
     const [id, setId] = useState(27205);
-    const [title, setTitle] = useState();
     const [trailerUrl, setTrailerUrl] = useState();
     const [imdbUrl, setImdbUrl] = useState();
     const [loading, setLoading] = useState(true);
@@ -19,15 +18,13 @@ const Main = () => {
 
     const fetchMovie = async () => {
         const result = await Axios(url);
-        setTitle(result.data.title);
         setMovie(result.data);
+
         if (result.data.imdb_id) {
             setImdbUrl(`https://www.imdb.com/title/${result.data.imdb_id}`);
         } else {
             setImdbUrl(undefined);
         };
-        updateBackground();
-        fetchTrailer();
     };
 
     const updateMovie = async (e) => {
@@ -56,8 +53,12 @@ const Main = () => {
 
     useEffect(() => {
         fetchMovie();
-        // updateBackground();
-        // fetchTrailer();
+        setLoading(false);
+    }, [id]);
+
+    useEffect(() => {
+        updateBackground();
+        fetchTrailer();
         setLoading(false);
     });
 
