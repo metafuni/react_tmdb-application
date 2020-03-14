@@ -27,13 +27,22 @@ const Main = () => {
         };
     };
 
-    const updateMovie = async (e) => {
+    // const updateMovie = async (e) => {
+    //     setLoading(true);
+    //     e.preventDefault();
+    //     const searchUrl = `https://api.themoviedb.org/3/search/movie?api_key=${API_key}&query=${e.target.elements.title.value}`;
+    //     const result = await Axios(searchUrl);
+    //     setId(result.data.results[0].id);
+    // };
+
+    //test code:
+    const updateMovie = async (id) => {
         setLoading(true);
-        e.preventDefault();
-        const searchUrl = `https://api.themoviedb.org/3/search/movie?api_key=${API_key}&query=${e.target.elements.title.value}`;
+        const searchUrl = `https://api.themoviedb.org/3/movie/${id}?api_key=${API_key}`;
         const result = await Axios(searchUrl);
-        setId(result.data.results[0].id);
-    };
+        setId(result.data.id);
+    }
+    //end test code
 
     const updateBackground = () => {
         const backdropUrl = 'https://image.tmdb.org/t/p/original/' + movie.backdrop_path;
@@ -53,7 +62,7 @@ const Main = () => {
 
     useEffect(() => {
         fetchMovie();
-        setLoading(false);
+        // setLoading(false);
     }, [id]);
 
     useEffect(() => {
@@ -61,6 +70,10 @@ const Main = () => {
         fetchTrailer();
         setLoading(false);
     });
+
+    // useEffect(() => {
+    //     setLoading(false);
+    // }, [])
 
     return (
         <div className="container">

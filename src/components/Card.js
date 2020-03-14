@@ -50,8 +50,8 @@ const Card = ({ movie, trailerUrl, imdbUrl }) => {
                     </div>
                 </div><br></br>
                 <div className="links">
-                    {trailerUrl ? <a href={trailerUrl} target="blank"><i className="fa fa-3x fa-youtube"></i></a> : null}
                     {imdbUrl ? <a href={imdbUrl} target="blank"><i className="fa fa-3x fa-imdb"></i></a> : null}
+                    {trailerUrl ? <a href={trailerUrl} target="blank"><i className="fa fa-3x fa-youtube"></i></a> : null}
                 </div><br></br>
             </div>
         </div>

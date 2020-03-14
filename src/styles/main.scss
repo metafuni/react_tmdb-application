@@ -1,5 +1,6 @@
 @import "animations";
 @import "responsive";
+@import "auto-suggest";
 
 body {
   margin: 0;
@@ -11,6 +12,7 @@ body {
   background-position: center;
   background-attachment: fixed;
   background-size: cover;
+  overflow-x: hidden;
 }
 
 .app {
@@ -32,6 +34,21 @@ body {
   position: relative;
   margin-bottom: 35px;
   width: 100%;
+
+  img {
+    transition: .3s;
+    border-radius: 15px;
+    padding-bottom: -5px;
+
+    &:hover {
+      box-shadow: -5px -5px 8px rgba(1, 212, 121, 0.25),
+        5px 2.5px 8px rgba(1, 212, 121, 0.25),
+        5px -5px 8px rgba(1, 212, 121, 0.25),
+        -5px 2.5px 8px rgba(1, 212, 121, 0.25),
+        inset 5px -5px 8px rgba(1, 212, 121, 0.25),
+        inset -5px -5px 8px rgba(1, 212, 121, 0.25);
+    }
+  }
 
   input {
     position: relative;
@@ -67,6 +84,16 @@ body {
 
   .card-img img {
     border-radius: 4px;
+    transition: 0.3s;
+    opacity: 0.8;
+
+    &:hover {
+      box-shadow: -1px -1px 8px rgba(1, 212, 121, 0.25),
+        1px 1px 8px rgba(1, 212, 121, 0.25),
+        1px -1px 8px rgba(1, 212, 121, 0.25),
+        -1px 1px 8px rgba(1, 212, 121, 0.25);
+      opacity: 1;
+    }
   }
 
   .card-info {
@@ -77,10 +104,13 @@ body {
     text-decoration: none;
     color: rgba(255, 255, 255, 0.7);
     margin-right: 1rem;
-    transition: .3s;
+    transition: 0.3s;
 
     &:hover {
       color: rgb(1, 212, 119);
+      box-shadow: 0 2.5px 8px rgba(1, 212, 121, 0.25),
+                  2.5px 2.5px 8px rgba(1, 212, 121, 0.25),
+                  -2.5px 2.5px 8px rgba(1, 212, 121, 0.25);
     }
   }
 }
@@ -144,7 +174,7 @@ body {
   height: 100vh;
   position: fixed;
   background: radial-gradient(black, rgba(0, 0, 0, 0.8));
-  transition: .5s;
+  transition: 0.5s;
 
   &-ring {
     border-radius: 25px;
