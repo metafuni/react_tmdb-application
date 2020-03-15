@@ -61,6 +61,9 @@ const Search = ({ updateMovie }) => {
                     getSuggestionValue={({ suggestion }) => suggestion}
                     renderSuggestion={suggestion => <div>{suggestion.name}</div>}
                 />
+                <button className="x-button" onClick={(e) => {e.preventDefault(); setSearchText('')}}>
+                    <i className="fa fa-times"></i>
+                </button>
             </form>
         </div>
     )

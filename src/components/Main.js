@@ -61,7 +61,6 @@ const Main = () => {
 
     useEffect(() => {
         fetchMovie();
-        // setLoading(false);
     }, [id]);
 
     useEffect(() => {

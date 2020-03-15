@@ -48,6 +48,10 @@
   .search:after {
     display: none;
   }
+  .search .x-button {
+    right: 7vw !important;
+    bottom: 2rem !important;
+  }
   .card .card-img img {
     width: 40vw;
     margin: 25px;
@@ -64,6 +68,9 @@
   .card .card-img img {
     margin: 5%;
     width: 90%;
+  }
+  .search .x-button {
+    right: 3vw !important;
   }
 }
 
@@ -228,6 +235,25 @@ body {
   width: 500px;
   height: 1px;
   background-color: white;
+}
+
+.search .x-button {
+  position: absolute;
+  right: 15px;
+  bottom: 25px;
+  outline: none;
+  background: none;
+  border: none;
+  color: rgba(255, 64, 64, 0.8);
+  -webkit-transform: scale(1.25);
+          transform: scale(1.25);
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.search .x-button:hover {
+  color: #ff4040;
+  cursor: pointer;
 }
 
 .card {
