@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Search from './Search';
 import Card from './Card';
 import loadingLogo from '../img/logo.png';
-import backgroundImg from '../img/cinema.jpg'
-
+import defaultBg from '../img/default-bg.jpg';
 import Axios from 'axios';
 
 const Main = () => {
@@ -46,7 +45,7 @@ const Main = () => {
 
     const updateBackground = () => {
         const backdropUrl = 'https://image.tmdb.org/t/p/original/' + movie.backdrop_path;
-        movie.backdrop_path ? document.body.style.backgroundImage = `url(${backdropUrl})` : document.body.style.backgroundImage = `url(${backgroundImg})`;
+        movie.backdrop_path ? document.body.style.backgroundImage = `url(${backdropUrl})` : document.body.style.backgroundImage = `url(${defaultBg})`;
     };
 
     const fetchTrailer = async () => {
