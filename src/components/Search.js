@@ -5,7 +5,6 @@ import Axios from 'axios';
 
 const Search = ({ updateMovie }) => {
 
-    //test code 
     const [searchText, setSearchText] = useState('');
     const [suggestions, setSuggestions] = useState([]);
 
@@ -52,13 +51,11 @@ const Search = ({ updateMovie }) => {
                     onSuggestionSelected={(event, { suggestion, method }) => {
                         if (method === 'enter' || method === 'click') {
                             event.preventDefault();
-                            // console.log('FETCH');
-                            // console.log(suggestion.id);
                             updateMovie(suggestion.id);
                         }
                         setSearchText(suggestion.name);
                     }}
-                    getSuggestionValue={({ suggestion }) => suggestion}
+                    getSuggestionValue={(suggestion) => suggestion.name}
                     renderSuggestion={suggestion => <div>{suggestion.name}</div>}
                 />
                 <button className="x-button" onClick={(e) => {e.preventDefault(); setSearchText('')}}>

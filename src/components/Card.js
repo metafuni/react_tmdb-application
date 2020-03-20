@@ -30,7 +30,7 @@ const Card = ({ movie, trailerUrl, imdbUrl }) => {
                     <h4 className="production">
                         {movie.production_companies !== undefined ? movie.production_companies.map(el => <li key={el.id} className="production-item">{el.name}</li>) : null}
                     </h4>
-                </div><br></br><br></br>
+                </div><br></br><br></br><br></br>
                 <div className="info-grid">
                     <div className="info-item">
                         <h3 className="header">Release Date</h3>
@@ -51,7 +51,7 @@ const Card = ({ movie, trailerUrl, imdbUrl }) => {
                 </div><br></br>
                 <div className="links">
                     {imdbUrl ? <a href={imdbUrl} target="blank"><i className="fa fa-3x fa-imdb"></i></a> : null}
-                    {trailerUrl ? <a href={trailerUrl} target="blank"><i className="fa fa-3x fa-youtube"></i></a> : null}
+                    {trailerUrl !== undefined ? <a href={trailerUrl} target="blank"><i className="fa fa-3x fa-youtube"></i></a> : null}
                 </div><br></br>
             </div>
         </div>

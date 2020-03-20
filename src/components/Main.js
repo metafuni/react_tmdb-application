@@ -7,7 +7,7 @@ import Axios from 'axios';
 
 const Main = () => {
     const [movie, setMovie] = useState({});
-    const [id, setId] = useState(27205);
+    const [id, setId] = useState(475557);
     const [trailerUrl, setTrailerUrl] = useState();
     const [imdbUrl, setImdbUrl] = useState();
     const [loading, setLoading] = useState(true);
@@ -34,14 +34,12 @@ const Main = () => {
     //     setId(result.data.results[0].id);
     // };
 
-    //test code:
     const updateMovie = async (id) => {
         setLoading(true);
         const searchUrl = `https://api.themoviedb.org/3/movie/${id}?api_key=${API_key}`;
         const result = await Axios(searchUrl);
         setId(result.data.id);
     }
-    //end test code
 
     const updateBackground = () => {
         const backdropUrl = 'https://image.tmdb.org/t/p/original/' + movie.backdrop_path;
@@ -68,10 +66,6 @@ const Main = () => {
         fetchTrailer();
         setLoading(false);
     });
-
-    // useEffect(() => {
-    //     setLoading(false);
-    // }, [])
 
     return (
         <div className="container">
