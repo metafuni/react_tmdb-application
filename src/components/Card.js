@@ -1,13 +1,18 @@
 import React from 'react';
+import RottenTomatoes from '../img/rottentomatoes.svg';
+import Tmdb from '../img/logo.png';
+import Imdb from '../img/imdb.png';
+import Youtube from '../img/youtube.svg';
 
 const Card = ({ movie, trailerUrl, imdbUrl }) => {
 
     const posterUrl = 'http://image.tmdb.org/t/p/w500//' + movie.poster_path;
+    const tmdbUrl = 'https://www.themoviedb.org/movie/' + movie.id;
+    const rottenTomatoesUrl = 'https://www.rottentomatoes.com/search?search=' + movie.title;
 
     return (
         <div className="card">
             <div className="card-img">
-
                 {movie.poster_path ?
                     <a href={movie.homepage} target="blank">
                         <img src={posterUrl} alt={movie.title} title={movie.title}></img>
@@ -50,8 +55,16 @@ const Card = ({ movie, trailerUrl, imdbUrl }) => {
                     </div>
                 </div><br></br>
                 <div className="links">
-                    {imdbUrl ? <a href={imdbUrl} target="blank"><i className="fa fa-3x fa-imdb"></i></a> : null}
-                    {trailerUrl !== undefined ? <a href={trailerUrl} target="blank"><i className="fa fa-3x fa-youtube"></i></a> : null}
+                    {tmdbUrl && <a href={tmdbUrl} target="blank"><img src={Tmdb}></img></a>}
+
+                    {/* {imdbUrl && <a href={imdbUrl} target="blank"><i className="fab fa-2x fa-imdb"></i></a>} */}
+                    {imdbUrl && <a href={imdbUrl} target="blank"><img src={Imdb}></img></a>}
+
+                    {/* {posterUrl && <a href={posterUrl} target="blank"><i className="fas fa-2x fa-globe"></i></a>} */}
+                    {rottenTomatoesUrl && <a href={rottenTomatoesUrl} target="blank"><img src={RottenTomatoes}></img></a>}
+
+                    {/* {trailerUrl && <a href={trailerUrl} target="blank"><i className="fab fa-2x fa-youtube"></i></a>} */}
+                    {trailerUrl && <a href={trailerUrl} target="blank"><img src={Youtube}></img></a>}
                 </div><br></br>
             </div>
         </div>

@@ -283,16 +283,25 @@ body {
 
 .card .links a {
   text-decoration: none;
-  color: rgba(255, 255, 255, 0.7);
+  color: #ffffffb3;
   margin-right: 1rem;
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 
+.card .links a img {
+  width: 30px;
+  opacity: .6;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
 .card .links a:hover {
-  color: #01d477;
-  -webkit-box-shadow: 0 2.5px 8px rgba(1, 212, 121, 0.25), 2.5px 2.5px 8px rgba(1, 212, 121, 0.25), -2.5px 2.5px 8px rgba(1, 212, 121, 0.25);
-          box-shadow: 0 2.5px 8px rgba(1, 212, 121, 0.25), 2.5px 2.5px 8px rgba(1, 212, 121, 0.25), -2.5px 2.5px 8px rgba(1, 212, 121, 0.25);
+  color: #00eb85;
+}
+
+.card .links a:hover img {
+  opacity: 1;
 }
 
 .movie-title {

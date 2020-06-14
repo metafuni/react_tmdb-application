@@ -58,6 +58,12 @@ const Main = () => {
     };
 
     useEffect(() => {
+        if (document.readyState == 'complete') {
+            setLoading(false);
+        }
+    }, []);
+
+    useEffect(() => {
         fetchMovie();
     }, [id]);
 
