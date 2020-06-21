@@ -34,8 +34,8 @@ const Card = ({ movie, trailerUrl, imdbUrl, fetchYoutube }) => {
                     </h3><br></br>
                     <h4 className="production">
                         {movie.production_companies !== undefined ? movie.production_companies.map(el => <li key={el.id} className="production-item">{el.name}</li>) : null}
-                    </h4>
-                </div><br></br><br></br><br></br>
+                    </h4><br></br>
+                </div><br></br>
                 <div className="info-grid">
                     <div className="info-item">
                         <h3 className="header">Release Date</h3>
@@ -53,22 +53,15 @@ const Card = ({ movie, trailerUrl, imdbUrl, fetchYoutube }) => {
                         <h3 className="header">Average Vote</h3>
                         <span>{movie.vote_average}</span>
                     </div>
-                </div><br></br>
+                </div>
                 <div className="links">
                     {tmdbUrl && <a href={tmdbUrl} target="blank"><img src={Tmdb}></img></a>}
-
-                    {/* {imdbUrl && <a href={imdbUrl} target="blank"><i className="fab fa-2x fa-imdb"></i></a>} */}
                     {imdbUrl && <a href={imdbUrl} target="blank"><img src={Imdb}></img></a>}
-
-                    {/* {posterUrl && <a href={posterUrl} target="blank"><i className="fas fa-2x fa-globe"></i></a>} */}
                     {rottenTomatoesUrl && <a href={rottenTomatoesUrl} target="blank"><img src={RottenTomatoes}></img></a>}
-
-                    {/* {trailerUrl && <a href={trailerUrl} target="blank"><i className="fab fa-2x fa-youtube"></i></a>} */}
-                    {/* {trailerUrl && <a href={trailerUrl} target="blank"><img src={Youtube}></img></a>} */}
                     <button onClick={fetchYoutube}>
                         <img src={Youtube}></img>
                     </button>
-                </div><br></br>
+                </div>
             </div>
         </div>
     )

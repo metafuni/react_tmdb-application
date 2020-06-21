@@ -336,14 +336,14 @@ body {
 }
 
 .info-grid {
-  display: -ms-grid;
-  display: grid;
+  display: -ms-inline-grid;
+  display: inline-grid;
   -ms-grid-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr;
   grid-gap: 1rem;
-  margin: 25px 0;
   font-size: 1.25rem;
   line-height: 1rem;
+  margin: 1rem auto 2.5rem auto;
 }
 
 .info-grid .info-item span {

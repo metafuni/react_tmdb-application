@@ -40,17 +40,6 @@ const Main = () => {
         movie.backdrop_path ? document.body.style.backgroundImage = `url(${backdropUrl})` : document.body.style.backgroundImage = `url(${defaultBg})`;
     };
 
-    // const fetchTrailer = async () => {
-    //     const searchUrl = `http://api.themoviedb.org/3/movie/${id}/videos?api_key=${API_key}`;
-    //     const result = await Axios(searchUrl);
-    //     if (result.data.results.length !== 0) {
-    //         const key = result.data.results[0].key;
-    //         setTrailerUrl(`https://www.youtube.com/watch?v=${key}`);
-    //     } else {
-    //         setTrailerUrl(undefined);
-    //     }
-    // };
-
     const fetchYoutube = async () => {
         setLoading(true);
         const ytURL = `https://www.googleapis.com/youtube/v3/search?topicId=%2Fm%2F02vxn&key=${YT_API_KEY}&part=snippet,id&order=relevance&maxResults=10&q=${movie.title}+official+movie+trailer`;
@@ -75,18 +64,11 @@ const Main = () => {
     };
 
     useEffect(() => {
-        if (document.readyState == 'complete') {
-            setLoading(false);
-        }
-    }, []);
-
-    useEffect(() => {
         fetchMovie();
     }, [id]);
 
     useEffect(() => {
         updateBackground();
-        // fetchTrailer();
         setLoading(false);
     });
 
@@ -96,7 +78,6 @@ const Main = () => {
                 <div id="trailer-container">
                     <div className="youtube-trailer">
                         <iframe width="100%" height="100%" title={movie.title} src={videoURL} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
-                        {/* <iframe width="100%" height="100%" src="https://www.youtube.com/embed/zAGVQLHvwOY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> */}
                     </div>
                 </div>
             }
