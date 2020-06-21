@@ -4,7 +4,7 @@ import Tmdb from '../img/logo.png';
 import Imdb from '../img/imdb.png';
 import Youtube from '../img/youtube.svg';
 
-const Card = ({ movie, trailerUrl, imdbUrl }) => {
+const Card = ({ movie, trailerUrl, imdbUrl, fetchYoutube }) => {
 
     const posterUrl = 'http://image.tmdb.org/t/p/w500//' + movie.poster_path;
     const tmdbUrl = 'https://www.themoviedb.org/movie/' + movie.id;
@@ -64,7 +64,10 @@ const Card = ({ movie, trailerUrl, imdbUrl }) => {
                     {rottenTomatoesUrl && <a href={rottenTomatoesUrl} target="blank"><img src={RottenTomatoes}></img></a>}
 
                     {/* {trailerUrl && <a href={trailerUrl} target="blank"><i className="fab fa-2x fa-youtube"></i></a>} */}
-                    {trailerUrl && <a href={trailerUrl} target="blank"><img src={Youtube}></img></a>}
+                    {/* {trailerUrl && <a href={trailerUrl} target="blank"><img src={Youtube}></img></a>} */}
+                    <button onClick={fetchYoutube}>
+                        <img src={Youtube}></img>
+                    </button>
                 </div><br></br>
             </div>
         </div>

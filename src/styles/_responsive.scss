@@ -55,4 +55,20 @@
             font-size: 1.75rem;
         }
     }
+
+    
+// Youtube Trailer Modal
+#trailer-container {
+     
+    .youtube-trailer {
+      width: 100% !important;
+      max-width: 850px;
+      height: 56vw !important;
+      max-height: 650px;
+  
+      iframe {
+        margin: 0 auto;
+      }
+    }
+  }
 }
