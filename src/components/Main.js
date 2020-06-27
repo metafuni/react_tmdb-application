@@ -48,19 +48,33 @@ const Main = () => {
         console.log(result);
 
         if (result.data.items[0]) {
-            setVideoURL(`https://www.youtube.com/embed/${result.data.items[0].id.videoId}`);
+            setVideoURL(`https://www.youtube.com/embed/${result.data.items[0].id.videoId}?enablejsapi=1`);
         } else {
             setVideoURL(null);
         };
 
         const modal = document.getElementById('trailer-container');
         modal.style.display = 'flex';
-        window.onclick = function(event) {
+        window.onclick = function (event) {
             if (event.target == modal) {
-              modal.style.display = "none";
+                modal.style.display = "none";
+                stopVideo(document.querySelector('.youtube-trailer'));
             }
-          }
+        }
         setLoading(false);
+    };
+
+    //stopVideo() function gets called whenever user closes youtube-trailer modal
+    var stopVideo = function (element) {
+        var iframe = element.querySelector('iframe');
+        var video = element.querySelector('video');
+        if (iframe !== null) {
+            var iframeSrc = iframe.src;
+            iframe.src = iframeSrc;
+        }
+        if (video !== null) {
+            video.pause();
+        }
     };
 
     useEffect(() => {
@@ -74,22 +88,29 @@ const Main = () => {
 
     return (
         <>
-        {movie.title &&
+            {movie.title &&
                 <div id="trailer-container">
                     <div className="youtube-trailer">
-                        <iframe width="100%" height="100%" title={movie.title} src={videoURL} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                        <button className="x-button-youtube" onClick={() => {
+                            const modal = document.getElementById('trailer-container');
+                            modal.style.display = "none";
+                            stopVideo(document.querySelector('.youtube-trailer'));
+                        }}>
+                            <i className="fa fa-times"></i>
+                        </button>
+                        <iframe width="100%" height="100%" id="video" title={movie.title} src={videoURL} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                     </div>
                 </div>
             }
-        <div className="container">
-            {loading ? <span id="loading">
-                <div id="loading-ring">
-                    <img src={loadingLogo} width="150px" alt="The Movie Database"></img>
-                </div>
-            </span> : null}
-            <Search updateMovie={updateMovie} />
-            <Card movie={movie} trailerUrl={trailerUrl} imdbUrl={imdbUrl} fetchYoutube={fetchYoutube} />
-        </div>
+            <div className="container">
+                {loading ? <span id="loading">
+                    <div id="loading-ring">
+                        <img src={loadingLogo} width="150px" alt="The Movie Database"></img>
+                    </div>
+                </span> : null}
+                <Search updateMovie={updateMovie} />
+                <Card movie={movie} trailerUrl={trailerUrl} imdbUrl={imdbUrl} fetchYoutube={fetchYoutube} />
+            </div>
         </>
     )
 };
