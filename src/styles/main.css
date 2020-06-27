@@ -88,6 +88,9 @@
     height: 56vw !important;
     max-height: 650px;
   }
+  #trailer-container .youtube-trailer .x-button-youtube {
+    display: none;
+  }
   #trailer-container .youtube-trailer iframe {
     margin: 0 auto;
   }

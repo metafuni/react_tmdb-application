@@ -65,6 +65,10 @@
       max-width: 850px;
       height: 56vw !important;
       max-height: 650px;
+
+      .x-button-youtube {
+          display: none;
+      }
   
       iframe {
         margin: 0 auto;
