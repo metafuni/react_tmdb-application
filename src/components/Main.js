@@ -14,7 +14,7 @@ const Main = () => {
     const [loading, setLoading] = useState(true);
 
     const API_key = '3ee3dd446b8afd003b08f596ade66996';
-    const YT_API_KEY = 'AIzaSyCHb2jEzMwhQFYj2V2s-boCkl2KLuIdVJk';
+    const YT_API_KEY = 'AIzaSyBimMgTEpBaf0Dmt1FjuF8Vdw_rQGBMXO8';
     const url = `https://api.themoviedb.org/3/movie/${id}?&api_key=${API_key}`;
 
     const fetchMovie = async () => {

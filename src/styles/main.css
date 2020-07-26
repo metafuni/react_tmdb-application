@@ -56,6 +56,9 @@
     width: 40vw;
     margin: 25px;
   }
+  .x-button-youtube {
+    display: none !important;
+  }
 }
 
 @media (max-width: 680px) {
@@ -87,9 +90,6 @@
     max-width: 850px;
     height: 56vw !important;
     max-height: 650px;
-  }
-  #trailer-container .youtube-trailer .x-button-youtube {
-    display: none;
   }
   #trailer-container .youtube-trailer iframe {
     margin: 0 auto;
